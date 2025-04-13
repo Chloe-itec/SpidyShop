@@ -1,0 +1,334 @@
+* {
+    margin: 0; /* Supprimer les marges par défaut */
+    padding: 0; /* Supprimer les espacements internes par défaut */
+    box-sizing: border-box; /* Inclure les bordures et les espacements internes dans les dimensions */
+    font-family: Arial, sans-serif; /* Police par défaut */
+}
+
+/* Style général pour l'entête commune */
+header {
+    background-color: #91d0fa; /* Couleur de fond du header */
+    color: #111; /* Couleur du texte du header */
+    text-align: center; /* Centrer le texte */
+    display: flex; /* Utiliser Flexbox pour le layout */
+    justify-content: space-between; /* Espacer les éléments du header */
+    align-items: center; /* Aligner les éléments au centre verticalement */
+    position: fixed; /* Fixer le header en haut de la page */
+    padding: 8px 0; /* Ajouter des espacements en haut et en bas */
+    width: 100%; /* Prendre toute la largeur de la page */
+    top: 0; /* Positionner en haut de la page */
+    z-index: 1000; /* Assurer que le header soit au-dessus des autres éléments */
+}
+
+header h1 {
+    font-size: 19px; /* Taille de la police du titre */
+    color: #fff; /* Couleur du texte du titre */
+    margin-left: 20px; /* Ajouter une marge à gauche */
+}
+
+h1 span {
+    color: #b9004d; /* Couleur du texte du span dans le titre */
+}
+
+.search-input {
+    margin-left: -315px; /* Ajouter une marge à gauche */
+    padding: 4px 0; /* Ajouter des espacements internes */
+    font-size: 13px; /* Taille de la police */
+    border: 1px solid #b4b1b1; /* Ajouter une bordure */
+    border-radius: 5px; /* Arrondir les coins */
+    width: 25%; /* Largeur de l'input */
+}
+
+nav ul {
+    list-style-type: none; /* Supprimer les puces des listes */
+    display: flex; /* Utiliser Flexbox pour le layout */
+}
+
+nav ul li {
+    margin: 0 15px; /* Ajouter des marges à gauche et à droite des éléments de la liste */
+}
+
+nav ul li a {
+    color: #111; /* Couleur du texte des liens */
+    text-decoration: none; /* Supprimer la décoration des liens */
+    font-size: 13px; /* Taille de la police des liens */
+}
+
+nav ul li a:hover {
+    border-bottom: 2px solid #b9004d;
+    color: #b9004d; /* Couleur du texte du span dans le titre */
+}
+
+.sectionAcceuil {
+    background-color: #b0dbe6; /* Couleur de fond de la section d'accueil */
+    display: flex; /* Utiliser Flexbox pour le layout */
+    align-items: center; /* Centrer les éléments verticalement */
+}
+
+.col-2 {
+    padding: 45px; /* Ajouter des espacements internes */
+    display: flex; /* Utiliser Flexbox pour le layout */
+    flex-direction: column; /* Aligner les éléments en colonne */
+    flex-basis: 100%; /* Prendre toute la largeur disponible */
+    margin-top: 30px;
+}
+
+.col-2:first-child {
+    margin-left: 140px; /* Ajouter une marge à gauche */
+    margin-top: -20px; /* Ajouter une marge en haut */
+}
+
+.col-2 img {
+    width: 450px; /* Largeur de l'image */
+    height: 235px; /* Hauteur de l'image */
+    border-radius: 10px; /* Arrondir les coins de l'image */
+    border: 5px solid #fff; /* Ajouter une bordure blanche */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); /* Ajouter une ombre portée */
+    justify-content: right; /* Aligner l'image à droite */
+    margin-left: 38px; /* Ajouter une marge à gauche */
+}
+
+h3 {
+    font-size: 25px; /* Taille de la police du titre */
+    color: #fcffff; /* Couleur du texte du titre */
+    text-align: center; /* Centrer le texte */
+    justify-content: space-around; /* Espacer les éléments autour */
+    margin-left: -80px; /* Ajouter une marge à gauche */
+    margin-bottom: 10px; /* Ajouter une marge en bas */
+}
+
+.col-2:first-child p {
+    margin-left: 37px; /* Ajouter une marge à gauche */
+    color: #464343; /* Couleur du texte des paragraphes */
+}
+
+h2 {
+    font-size: 25px; /* Taille de la police du titre */
+    color: #292828; /* Couleur du texte du titre */
+    text-align: left; /* Aligner le texte à gauche */
+    justify-content: space-around; /* Espacer les éléments autour */
+    margin-left: 50px; /* Ajouter une marge à gauche */
+    margin-top: 65px; /* Ajouter une marge en haut */
+}
+
+.categories {
+    display: flex; /* Utiliser Flexbox pour le layout */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
+    margin-top: 20px; /* Ajouter une marge en haut */
+}
+
+.col-4 {
+    flex-basis: 35%; /* Prendre 35% de la largeur disponible */
+    max-width: 300px; /* Largeur maximale de la colonne */
+    margin-right: 12px; /* Ajouter une marge à droite */
+}
+
+.col-4 h4 {
+    margin-bottom: 10px; /* Ajouter une marge en bas */
+    margin-top: 5px; /* Ajouter une marge en haut */
+}
+
+.two-columns {
+    display: flex; /* Utiliser Flexbox pour le layout */
+    align-items: stretch; /* Assurer que les colonnes aient la même hauteur */
+    margin: 40px 52px; /* Ajouter des marges */
+}
+
+.two-columns .col-1 {
+    flex: 2; /* Rendre la première colonne plus large */
+    padding: 60px; /* Ajouter des espacements internes */
+    padding-left: 100px; /* Ajouter un espacement interne à gauche */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre portée */
+    background-color: #8ed5eb; /* Couleur de fond pour la première colonne */
+}
+
+.two-columns .col-2 {
+    flex: 1; /* Rendre la deuxième colonne plus étroite */
+    padding: 10px; /* Ajouter des espacements internes */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre portée */
+    background-color: #02beb5; /* Couleur de fond pour la deuxième colonne */
+}
+
+.top-articles {
+    font-size: 25px; /* Taille de la police du titre */
+    color: #292828; /* Couleur du texte du titre */
+    text-align: center; /* Centrer le texte */
+    margin-top: 40px; /* Ajouter une marge en haut */
+    margin-bottom: 20px; /* Ajouter une marge en bas */
+}
+
+.top-8-articles {
+    display: flex; /* Utiliser Flexbox pour le layout */
+    flex-wrap: wrap; /* Permettre aux éléments de se répartir sur plusieurs lignes */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    gap: 20px; /* Ajouter un espacement entre les éléments */
+    margin-top: 20px; /* Ajouter une marge en haut */
+}
+
+.article {
+    flex-basis: 22%; /* Prendre 22% de la largeur disponible */
+    text-align: center; /* Centrer le texte */
+}
+
+.article img {
+    width: 100%; /* Prendre toute la largeur disponible */
+    height: auto; /* Ajuster la hauteur automatiquement */
+    border-radius: 10px; /* Arrondir les coins de l'image */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); /* Ajouter une ombre portée */
+}
+
+.article p {
+    margin-top: 10px; /* Ajouter une marge en haut */
+    font-size: 16px; /* Taille de la police du texte */
+    color: #292828; /* Couleur du texte */
+}
+
+.button-container {
+    text-align: center; /* Centrer le bouton */
+    margin-top: 20px; /* Ajouter une marge en haut */
+    margin-bottom: 40px; /* Ajouter une marge en bas */
+}
+
+.voir-plus {
+    background-color: #6ac8f3; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    border: none; /* Supprimer la bordure */
+    padding: 10px 20px; /* Ajouter des espacements internes */
+    font-size: 16px; /* Taille de la police du bouton */
+    border-radius: 5px; /* Arrondir les coins du bouton */
+    cursor: pointer; /* Changer le curseur au survol */
+    width: 33%; /* Largeur du bouton */
+}
+
+.voir-plus:hover {
+    background-color: #5aa7d1; /* Changer la couleur de fond au survol */
+}
+
+.footer {
+    background-color: #6b6b6b; /* Couleur de fond gris */
+    padding: 20px; /* Ajouter des espacements internes */
+    display: flex; /* Utiliser Flexbox pour le layout */
+    justify-content: initial; /* Aligner les éléments normalement */
+    align-items: normal; /* Aligner les éléments normalement */
+}
+.footer-left, .footer-right {
+    flex-basis: 49%; /* Prendre 49% de la largeur disponible pour diminuer l'espace entre les colonnes */
+}
+
+.footer-left p {
+    margin: 5px; /* Ajouter une marge en haut et en bas */
+    margin-left: 150px; /* Ajouter une marge à gauche */
+}
+
+.footer-left p:nth-child(2) {
+    margin-bottom: 20px; /* Ajouter de l'espace après le deuxième <p> */
+}
+
+.footer-right {
+    margin-left: 590px; /* Ajouter une marge automatique à gauche pour pousser le contenu à droite */
+}
+
+.footer-right p {
+    margin: 15px 0; /* Ajouter une marge en haut et en bas */
+    margin-right: 150px; /* Ajouter une marge à droite */
+}
+
+.description-1 {
+    font-weight: bold; /* Mettre le texte en gras */
+    text-align: center; /* Centrer le texte */
+}
+
+.copyright {
+    background-color: #000; /* Couleur de fond noir */
+    color: #fff; /* Couleur du texte blanc */
+    text-align: center; /* Centrer le texte */
+    padding: 10px 0; /* Ajouter des espacements internes */
+}
+
+/* Media Queries pour rendre la page responsive */
+@media (max-width: 1200px) {
+    .col-2 img, .article img {
+        width: 100%; /* Ajuster la largeur des images */
+        height: auto; /* Ajuster la hauteur automatiquement */
+    }
+
+    .col-2 {
+        margin-left: 0; /* Supprimer la marge à gauche */
+        margin-top: 0; /* Supprimer la marge en haut */
+    }
+
+    .two-columns {
+        flex-direction: column; /* Aligner les colonnes en colonne */
+        margin: 20px; /* Ajuster les marges */
+    }
+
+    .two-columns .col-1, .two-columns .col-2 {
+        padding: 20px; /* Ajuster les espacements internes */
+    }
+
+    .footer-left, .footer-right {
+        flex-basis: 100%; /* Prendre toute la largeur disponible */
+        text-align: center; /* Centrer le texte */
+        margin: 10px 0; /* Ajouter des marges en haut et en bas */
+    }
+
+    .footer-right {
+        margin-left: 0; /* Supprimer la marge à gauche */
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Aligner les éléments de la liste en colonne */
+        text-align: center; /* Centrer le texte */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Ajouter des marges en haut et en bas */
+    }
+
+    .search-input {
+        width: 80%; /* Ajuster la largeur de l'input */
+        margin-left: 0; /* Supprimer la marge à gauche */
+    }
+
+    .col-4 {
+        flex-basis: 100%; /* Prendre toute la largeur disponible */
+        max-width: none; /* Supprimer la largeur maximale */
+        margin: 10px 0; /* Ajouter des marges en haut et en bas */
+    }
+
+    .button-container {
+        width: 100%; /* Prendre toute la largeur disponible */
+    }
+
+    .voir-plus {
+        width: 80%; /* Ajuster la largeur du bouton */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 18px; /* Ajuster la taille de la police du titre */
+    }
+
+    .col-2 img, .article img {
+        width: 100%; /* Ajuster la largeur des images */
+        height: auto; /* Ajuster la hauteur automatiquement */
+    }
+
+    .col-2 {
+        padding: 20px; /* Ajuster les espacements internes */
+    }
+
+    .two-columns {
+        margin: 10px; /* Ajuster les marges */
+    }
+
+    .footer-left p, .footer-right p {
+        margin: 5px 0; /* Ajuster les marges en haut et en bas */
+    }
+}
+
+

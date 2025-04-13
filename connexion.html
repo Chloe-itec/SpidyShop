@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"> <!-- Encodage des caractères -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Pour un affichage responsive -->
+    <title>Connexion</title> <!-- Titre de la page -->
+</head>
+<body>
+    <style>
+        * {
+            margin: 0; /* Supprimer les marges par défaut */
+            padding: 0; /* Supprimer les espacements internes par défaut */
+            box-sizing: border-box; /* Inclure les bordures et les espacements internes dans les dimensions */
+            font-family: Arial, sans-serif; /* Police par défaut */
+        }
+        /* Style général pour l'entête commun */
+        header {
+            background-color: #6ac8f3; /* Couleur de fond du header */
+            color: #111; /* Couleur du texte du header */
+            text-align: center; /* Centrer le texte */
+            display: flex; /* Utiliser Flexbox pour le layout */
+            justify-content: space-between; /* Espacer les éléments du header */
+            align-items: center; /* Aligner les éléments au centre verticalement */
+            position: fixed; /* Fixer le header en haut de la page */
+            padding: 8px 0; /* Ajouter des espacements en haut et en bas */
+            width: 100%; /* Prendre toute la largeur de la page */
+            top: 0; /* Positionner en haut de la page */
+            z-index: 1000; /* Assurer que le header soit au-dessus des autres éléments */
+        }
+
+        header h1 {
+            font-size: 20px; /* Taille de la police du titre */
+            color: #fff; /* Couleur du texte du titre */
+            margin-left: 20px; /* Ajouter une marge à gauche */
+        }
+
+        h1 span {
+            color: #c72267; /* Couleur du texte du span dans le titre */
+        }
+
+        nav ul {
+            list-style-type: none; /* Supprimer les puces des listes */
+            display: flex; /* Utiliser Flexbox pour le layout */
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Ajouter des marges à gauche et à droite des éléments de la liste */
+        }
+
+        nav ul li a {
+            color: #111; /* Couleur du texte des liens */
+            text-decoration: none; /* Supprimer la décoration des liens */
+            font-size: 13px; /* Taille de la police des liens */
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline; /* Ajouter une décoration au survol des liens */
+        }
+
+        .auth-title {
+            font-size: 2em; /* Taille de la police du titre d'authentification */
+            text-align: center; /* Centrer le texte */
+            margin-top: 100px; /* Ajouter une marge en haut */
+        }
+        .auth-container {
+            display: flex; /* Utiliser Flexbox pour le layout */
+            justify-content: space-between; /* Espacer les éléments */
+            align-items: center; /* Aligner les éléments au centre verticalement */
+            margin-top: 100px; /* Ajouter une marge en haut */
+            margin-bottom: 70px; /* Ajouter une marge en bas */
+            padding-bottom: 30px; /* Espace entre les éléments et la ligne */
+            border-bottom: 2px solid #000; /* Large ligne en dessous des éléments */
+            width: 90%; /* Prendre au moins 90% de la largeur */
+            margin-left: auto; /* Centrer horizontalement */
+            margin-right: auto; /* Centrer horizontalement */
+        }
+        .auth-container .auth-title {
+            margin: 0 auto; /* Centrer horizontalement */
+            margin-right: 250px; /* Ajouter une marge à droite */
+        }
+        .auth-container h1:last-child {
+            margin-left: 0; /* Supprimer la marge à gauche */
+            margin-right: 50px; /* Ajouter une marge à droite */
+        }
+        .auth-container img {
+            margin-left: 10px; /* Ajouter une marge à gauche */
+        }
+        .login-form {
+            display: flex; /* Utiliser Flexbox pour le layout */
+            flex-direction: column; /* Disposer les éléments en colonne */
+            align-items: center; /* Centrer les éléments horizontalement */
+            background-color: #f0f0f0; /* Couleur de fond du formulaire */
+            padding: 50px; /* Ajouter des espacements à l'intérieur du formulaire */
+            border-radius: 10px; /* Arrondir les coins */
+            width: 40%; /* Largeur plus petite */
+            margin: 0 auto; /* Centrer le formulaire */
+            margin-bottom: 70px; /* Ajouter une marge en bas */
+        }
+        .login-form .form-group,
+        .login-form .form-inline {
+            display: flex; /* Utiliser Flexbox pour le layout */
+            align-items: center; /* Aligner les éléments au centre verticalement */
+            justify-content: space-between; /* Espacer les éléments */
+            width: 100%; /* Prendre toute la largeur */
+            margin-bottom: 25px; /* Ajouter une marge en bas pour plus d'espace */
+        }
+        .login-form .form-group label,
+        .login-form .form-inline label {
+            margin-right: 10px; /* Ajouter une marge à droite */
+            width: 35%; /* Alignement des labels */
+        }
+        .login-form .form-group input,
+        .login-form .form-inline input {
+            flex-grow: 1; /* Prendre tout l'espace disponible */
+            height: 30px; /* Hauteur des champs de saisie */
+            padding: 10px; /* Ajouter des espacements internes */
+            border: 1px solid #ccc; /* Ajouter une bordure */
+            border-radius: 5px; /* Arrondir les coins */
+        }
+
+        .login-form button {
+            padding: 10px 20px; /* Ajouter des espacements internes */
+            background-color: #6ac8f3; /* Couleur de fond du bouton */
+            border: none; /* Supprimer les bordures */
+            border-radius: 5px; /* Arrondir les coins */
+            color: #fff; /* Couleur du texte */
+            cursor: pointer; /* Changer le curseur au survol */
+        }
+        
+        .login-form button:hover {
+            background-color: #5bb0d4; /* Changer la couleur de fond au survol */
+        }
+        .login-form .checkbox-group {
+            display: flex; /* Utiliser Flexbox pour le layout */
+            align-items: center; /* Aligner les éléments au centre verticalement */
+            margin-bottom: 25px; /* Ajouter une marge en bas pour plus d'espace */
+        }
+        .login-form .checkbox-group input {
+            margin-right: 10px; /* Ajouter une marge à droite */
+        }
+        .login-form .signup-link {
+            margin-top: 20px; /* Ajouter une marge en haut */
+            text-align: center; /* Centrer le texte */
+        }
+        .login-form .signup-link a {
+            color: #6ac8f3; /* Couleur du lien */
+            text-decoration: none; /* Supprimer la décoration du lien */
+        }
+        .login-form .signup-link a:hover {
+            text-decoration: underline; /* Ajouter une décoration au survol du lien */
+        }
+        .footer {
+            background-color: #6b6b6b; /* Couleur de fond gris */
+            padding: 20px; /* Ajouter des espacements internes */
+            display: flex; /* Utiliser Flexbox pour le layout */
+            justify-content: initial; /* Aligner les éléments normalement */
+            align-items: normal; /* Aligner les éléments normalement */
+        }
+        .footer-left, .footer-right {
+            flex-basis: 49%; /* Prendre 49% de la largeur disponible pour diminuer l'espace entre les colonnes */
+        }
+
+        .footer-left p {
+            margin: 5px; /* Ajouter une marge en haut et en bas */
+            margin-left: 150px; /* Ajouter une marge à gauche */
+        }
+
+        .footer-left p:nth-child(2) {
+            margin-bottom: 20px; /* Ajouter de l'espace après le deuxième <p> */
+        }
+
+        .footer-right {
+            margin-left: 590px; /* Ajouter une marge automatique à gauche pour pousser le contenu à droite */
+        }
+
+        .footer-right p {
+            margin: 15px 0; /* Ajouter une marge en haut et en bas */
+            margin-right: 150px; /* Ajouter une marge à droite */
+        }
+
+        .copyright {
+            background-color: #000; /* Couleur de fond noir */
+            color: #fff; /* Couleur du texte blanc */
+            text-align: center; /* Centrer le texte */
+            padding: 10px 0; /* Ajouter des espacements internes */
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .auth-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .login-form {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 18px;
+            }
+
+            .auth-title {
+                font-size: 20px;
+            }
+
+            .login-form button {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <!-- Ceci est l'entête commun -->
+    <header>
+        <h1><span>SPIDY</span> SHOP</h1> <!-- Titre du site -->
+        <input type="text" class="search-input" placeholder="Entrez text..."> <!-- Ajouter le champ de recherche -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li> <!-- Lien vers la page d'accueil -->
+                <li><a href="connexion.html">Connexion</a></li> <!-- Lien vers la page de connexion -->
+                <li><a href="inscription.html">Inscription</a></li> <!-- Lien vers la page d'inscription -->
+                <li><a href="articles.html">Articles</a></li> <!-- Lien vers la page des articles -->
+                <li><a href="panier.html">Panier</a></li> <!-- Lien vers la page du panier -->
+                <li><a href="qui-sommes-nous.html">Qui sommes nous</a></li> <!-- Lien vers la page "Qui sommes nous" -->
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="auth-container">
+        <h1 class="auth-title">AUTHENTIFICATION</h1> <!-- Titre de la section d'authentification -->
+        <h1 class="logo"><span>SPIDY</span> SHOP</h1> <!-- Logo du site -->
+    </div>
+
+    <form class="login-form">
+        <div class="form-group">
+            <label for="username">Utilisateur</label> <!-- Label pour le champ de saisie du nom d'utilisateur -->
+            <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required> <!-- Champ de saisie du nom d'utilisateur -->
+        </div>
+        <div class="form-inline">
+            <label for="password">Login</label> <!-- Label pour le champ de saisie du mot de passe -->
+            <input type="password" id="password" name="password" placeholder="Mot de passe" required> <!-- Champ de saisie du mot de passe -->
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="remember" name="remember"> <!-- Case à cocher pour sauvegarder le mot de passe -->
+            <label for="remember">Sauvegarde mon mot de passe</label> <!-- Label pour la case à cocher -->
+        </div>
+        <button type="submit">Connexion</button> <!-- Bouton de soumission du formulaire -->
+        <div class="signup-link">
+            <p>j'ai pas de compte, <a href="inscription.html">créer un compte</a></p> <!-- Lien vers la page d'inscription -->
+        </div>
+    </form>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <p>Siafoumou Arret Manguier</p>
+            <p>06-66-895-66</p>
+            <p>Siafoumou Arret Manguier</p>
+            <p>06-66-895-66</p>
+        </div>
+        <div class="footer-right">
+            <p>Catalogue produit</p>
+            <p>fiche d'adhesion</p>
+            <p>Envoi d'email</p>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>Copyright 2025 by Webster Poison Ingenierie</p>
+    </div>
+
+    
+</body>
+</html>

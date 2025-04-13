@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpidyShop Article</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        /* Style général pour l'entête commun */
+        header {
+            background-color: #6ac8f3; /* Couleur de fond du header */
+            color: #111; /* Couleur du texte du header */
+            text-align: center; /* Centrer le texte */
+            display: flex; /* Utiliser Flexbox pour le layout */
+            justify-content: space-between; /* Espacer les éléments du header */
+            align-items: center; /* Aligner les éléments au centre verticalement */
+            position: fixed; /* Fixer le header en haut de la page */
+            padding: 8px 0; /* Ajouter des espacements en haut et en bas */
+            width: 100%; /* Prendre toute la largeur de la page */
+            top: 0; /* Positionner en haut de la page */
+            z-index: 1000; /* Assurer que le header soit au-dessus des autres éléments */
+        }
+
+        header h1 {
+            font-size: 20px; /* Taille de la police du titre */
+            color: #fff; /* Couleur du texte du titre */
+            margin-left: 20px; /* Ajouter une marge à gauche */
+        }
+
+        h1 span {
+            color: #c72267; /* Couleur du texte du span dans le titre */
+        }
+
+        nav ul {
+            list-style-type: none; /* Supprimer les puces des listes */
+            display: flex; /* Utiliser Flexbox pour le layout */
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Ajouter des marges à gauche et à droite des éléments de la liste */
+        }
+
+        nav ul li a {
+            color: #111; /* Couleur du texte des liens */
+            text-decoration: none; /* Supprimer la décoration des liens */
+            font-size: 13px; /* Taille de la police des liens */
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline; /* Ajouter une décoration au survol des liens */
+        }
+
+        .footer {
+            background-color: #6b6b6b; /* Couleur de fond gris */
+            padding: 20px; /* Ajouter des espacements internes */
+            display: flex; /* Utiliser Flexbox pour le layout */
+            justify-content: initial; /* Aligner les éléments normalement */
+            align-items: normal; /* Aligner les éléments normalement */
+            margin-top: 40px; /* Ajouter une marge au-dessus pour créer une distance */
+        }
+        .footer-left, .footer-right {
+            flex-basis: 49%; /* Prendre 49% de la largeur disponible pour diminuer l'espace entre les colonnes */
+        }
+
+        .footer-left p {
+            margin: 5px; /* Ajouter une marge en haut et en bas */
+            margin-left: 150px; /* Ajouter une marge à gauche */
+        }
+
+        .footer-left p:nth-child(2) {
+            margin-bottom: 20px; /* Ajouter de l'espace après le deuxième <p> */
+        }
+
+        .footer-right {
+            margin-left: 590px; /* Ajouter une marge automatique à gauche pour pousser le contenu à droite */
+        }
+
+        .footer-right p {
+            margin: 15px 0; /* Ajouter une marge en haut et en bas */
+            margin-right: 150px; /* Ajouter une marge à droite */
+        }
+
+        .copyright {
+            background-color: #000; /* Couleur de fond noir */
+            color: #fff; /* Couleur du texte blanc */
+            text-align: center; /* Centrer le texte */
+            padding: 10px 0; /* Ajouter des espacements internes */
+        }
+
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 60px; /* Ajuster cette valeur selon la hauteur du header */
+            position: relative;
+        }
+
+        .auth-title {
+            position: absolute;
+            left: 30%;
+            margin-left: 300px; /* Ajuster cette valeur pour centrer le titre */
+            transform: translateX(-50%);
+        }
+
+        .auth-container h1:last-child {
+            margin-left: auto; /* Utiliser auto pour pousser le deuxième h1 à droite */
+        }
+
+        .bottom-line {
+            width: 90%; /* Ajuster la largeur de la ligne à 90% */
+            height: 2px; /* Ajuster la hauteur de la ligne */
+            background-color: #000; /* Couleur de la ligne */
+            margin: 20px auto; /* Ajouter une marge au-dessus de la ligne et centrer horizontalement */
+        }
+        .logo {
+            font-size: 19px; /* Taille de la police du logo */
+            margin-right: 70px; /* Ajouter une marge à droite */
+        }
+
+        .content-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 20px 0;
+        }
+
+        .content-text {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .content-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px; /* Ajouter une marge à droite pour espacer les éléments */
+        }
+
+        .content-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .content-price {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .medium-photo {
+            width: 200px; /* Adjust the size as needed */
+            height: auto;
+            margin: 10px;
+        }
+
+        .content-images {
+            display: flex;
+            justify-content: flex-end; /* Align photos to the right */
+            margin-left: 300px; /* Adjust the margin as needed */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; /* Center-align buttons */
+            margin-top: 20px;
+        }
+        .btn-add-to-cart {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #6ac8f3; /* Color for "Ajouter au panier" */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-buy-now {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #c72267; /* Color for "Achetez" */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-add-to-cart:hover {
+            background-color: #5aaed1;
+        }
+        .btn-buy-now:hover {
+            background-color: #a61b53;
+        }
+
+        .form-container label {
+            display: inline-block;
+            width: 150px; /* Adjust the width as needed */
+            text-align: right;
+            margin-right: 10px;
+        }
+        .form-container input {
+            display: inline-block;
+            width: calc(100% - 170px); /* Adjust the width as needed */
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .auth-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-image, .content-text {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 18px;
+            }
+
+            .auth-title {
+                font-size: 20px;
+            }
+
+            .btn-add-to-cart, .btn-buy-now {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <!-- Ceci est l'entête commun -->
+    <header>
+        <h1><span>SPIDY</span> SHOP</h1>
+        <input type="text" class="search-input" placeholder="Entrez text..."> <!-- Ajouter le champ de recherche -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li> <!-- Lien vers la page d'accueil -->
+                <li><a href="connexion.html">Connexion</a></li> <!-- Lien vers la page de connexion -->
+                <li><a href="inscription.html">Inscription</a></li> <!-- Lien vers la page d'inscription -->
+                <li><a href="articles.html">Articles</a></li> <!-- Lien vers la page des articles -->
+                <li><a href="panier.html">Panier</a></li> <!-- Lien vers la page du panier -->
+                <li><a href="qui-sommes-nous.html">Qui sommes nous</a></li> <!-- Lien vers la page "Qui sommes nous" -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="auth-container">
+        <h1 class="auth-title">ARTICLE N° 78</h1> <!-- Titre de la section d'authentification -->
+        <h1 class="logo"><span>SPIDY</span> SHOP</h1> <!-- Logo du site -->
+    </div>
+
+    <hr class="bottom-line"> <!-- Ajouter la ligne en bas -->
+
+    <div class="content-section">
+        <div class="content-image">
+            <img src="img.2/Forêt et route.jpeg" alt="Image Description"> <!-- Remplacer par le chemin de votre image -->
+            <div class="content-price">$401</div>
+        </div>
+        <div class="content-text">
+            <p>The Skill of Technology-Driven Notion<br>
+            One should, nevertheless, consider that a deliberate action of the growth of the
+            source of permanent growth ensures integrity of The Financing of Productive
+            Strategy<br>
+            Reid Willey in The Book of the Standards Control)<br>
+            On the assumption of the organization of the lucid verification, the design of the
+            internal policy what is conventionally known as grand strategy general tendency
+            of the system concepts. Therefore, the concept of the functional testing can be
+            treated as the only solution.<br>
+            Simplistically, the lack of knowledge of the main source of the operating speed
+            model should correlate with the positive influence of any design patterns.<br>
+            In short, the explicit examination of system concepts should set clear rules
+            regarding the minor details of crucial development skills.</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="content-images">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 1" class="medium-photo">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 2" class="medium-photo">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 3" class="medium-photo">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 4" class="medium-photo">
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="btn-add-to-cart">Ajouter au panier</button>
+        <button class="btn-buy-now">Achetez</button>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <p>Siafoumou Arret Manguier</p>
+            <p>06-66-895-66</p>
+            <p>Siafoumou Arret Manguier</p>
+            <p>06-66-895-66</p>
+        </div>
+        <div class="footer-right">
+            <p>Catalogue produit</p>
+            <p>fiche d'adhesion</p>
+            <p>Envoi d'email</p>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>Copyright 2025 by Webster Poison Ingenierie</p>
+    </div>
+
+    <!--
+    <main>
+    </main>
+    <footer>
+        <p>&copy; 2023 SpidyShop. All rights reserved.</p>
+    </footer>
+    -->
+
+</body>
+</html>

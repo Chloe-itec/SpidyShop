@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        /* Style général pour l'entête commun */
+        header {
+            background-color: #6ac8f3; /* Couleur de fond du header */
+            color: #111; /* Couleur du texte du header */
+            text-align: center; /* Centrer le texte */
+            display: flex; /* Utiliser Flexbox pour le layout */
+            justify-content: space-between; /* Espacer les éléments du header */
+            align-items: center; /* Aligner les éléments au centre verticalement */
+            position: fixed; /* Fixer le header en haut de la page */
+            padding: 8px 0; /* Ajouter des espacements en haut et en bas */
+            width: 100%; /* Prendre toute la largeur de la page */
+            top: 0; /* Positionner en haut de la page */
+            z-index: 1000; /* Assurer que le header soit au-dessus des autres éléments */
+        }
+
+        header h1 {
+            font-size: 20px; /* Taille de la police du titre */
+            color: #fff; /* Couleur du texte du titre */
+            margin-left: 20px; /* Ajouter une marge à gauche */
+        }
+
+        h1 span {
+            color: #c72267; /* Couleur du texte du span dans le titre */
+        }
+
+        nav ul {
+            list-style-type: none; /* Supprimer les puces des listes */
+            display: flex; /* Utiliser Flexbox pour le layout */
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Ajouter des marges à gauche et à droite des éléments de la liste */
+        }
+
+        nav ul li a {
+            color: #111; /* Couleur du texte des liens */
+            text-decoration: none; /* Supprimer la décoration des liens */
+            font-size: 13px; /* Taille de la police des liens */
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline; /* Ajouter une décoration au survol des liens */
+        }
+
+        .footer {
+            background-color: #6b6b6b; /* Couleur de fond gris */
+            padding: 20px; /* Ajouter des espacements internes */
+            display: flex; /* Utiliser Flexbox pour le layout */
+            justify-content: initial; /* Aligner les éléments normalement */
+            align-items: normal; /* Aligner les éléments normalement */
+        }
+        .footer-left, .footer-right {
+            flex-basis: 49%; /* Prendre 49% de la largeur disponible pour diminuer l'espace entre les colonnes */
+        }
+
+        .footer-left p {
+            margin: 5px; /* Ajouter une marge en haut et en bas */
+            margin-left: 150px; /* Ajouter une marge à gauche */
+        }
+
+        .footer-left p:nth-child(2) {
+            margin-bottom: 20px; /* Ajouter de l'espace après le deuxième <p> */
+        }
+
+        .footer-right {
+            margin-left: 590px; /* Ajouter une marge automatique à gauche pour pousser le contenu à droite */
+        }
+
+        .footer-right p {
+            margin: 15px 0; /* Ajouter une marge en haut et en bas */
+            margin-right: 150px; /* Ajouter une marge à droite */
+        }
+
+        .copyright {
+            background-color: #000; /* Couleur de fond noir */
+            color: #fff; /* Couleur du texte blanc */
+            text-align: center; /* Centrer le texte */
+            padding: 10px 0; /* Ajouter des espacements internes */
+        }
+
+        .photo-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 100px; /* Adjust margin to avoid overlap with fixed header */
+        }
+
+        .photo-item {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            width: 45%; /* Adjust width to fit two items per row */
+        }
+
+        .photo-item img {
+            border-radius: 50%;
+            width: 150px; /* Adjust size as needed */
+            height: 150px; /* Adjust size as needed */
+            margin-right: 20px;
+        }
+
+        .photo-item p {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .photo-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .photo-item {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 18px;
+            }
+
+            .photo-item img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ceci est l'entête commun -->
+    <header>
+        <h1><span>SPIDY</span> SHOP</h1>
+        <input type="text" class="search-input" placeholder="Entrez text..."> <!-- Ajouter le champ de recherche -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li> <!-- Lien vers la page d'accueil -->
+                <li><a href="connexion.html">Connexion</a></li> <!-- Lien vers la page de connexion -->
+                <li><a href="inscription.html">Inscription</a></li> <!-- Lien vers la page d'inscription -->
+                <li><a href="articles.html">Articles</a></li> <!-- Lien vers la page des articles -->
+                <li><a href="panier.html">Panier</a></li> <!-- Lien vers la page du panier -->
+                <li><a href="qui-sommes-nous.html">Qui sommes nous</a></li> <!-- Lien vers la page "Qui sommes nous" -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="auth-container">
+        <h1 class="auth-title">NOTRE EQUIPE</h1> <!-- Titre de la section d'authentification -->
+        <h1 class="logo"><span>SPIDY</span> SHOP</h1> <!-- Logo du site -->
+    </div>
+
+    <div class="photo-section">
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 1">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 2">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 3">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 4">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 5">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 6">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 7">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 8">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 9">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+        <div class="photo-item">
+            <img src="img.2/Forêt et route.jpeg" alt="Photo 10">
+            <p>Jerrie.Whitlock13@nowhere.com Moreover, in terms of the integrated collection of software engineering standards impacts literally on every first-class package</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <p>Siafoumou Arret Manguier</p>
+            <p>06-66-895-66</p>
+            <p>Siafoumou Arret Manguier</p>
+            <p>06-66-895-66</p>
+        </div>
+        <div class="footer-right">
+            <p>Catalogue produit</p>
+            <p>fiche d'adhesion</p>
+            <p>Envoi d'email</p>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>Copyright 2025 by Webster Poison Ingenierie</p>
+    </div>
+
+</body>
+</html>
